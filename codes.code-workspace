@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "I2C_finder",
+			"path": "test_codes/I2C_finder"
+		},
+		{
+			"name": "ADXL345_nano",
+			"path": "test_codes/ADXL345_nano"
+		},
+		{
+			"name": "I2C_slave_nano",
+			"path": "test_codes/I2C_slave_nano"
+		},
+		{
+			"name": "NRF24L01_checkworking_nano",
+			"path": "test_codes/NRF24L01_checkworking_nano"
+		}
+	],
+	"settings": {
+		"editor.formatOnPaste": true,
+		"editor.defaultFormatter": "xaver.clang-format",
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true
+	}
+}
