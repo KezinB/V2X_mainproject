@@ -18,6 +18,10 @@
 		{
 			"name": "NRF24L01_checkworking_nano",
 			"path": "test_codes/NRF24L01_checkworking_nano"
+		},
+		{
+			"name": "TX_check_NRF",
+			"path": "main/TX_check_NRF"
 		}
 	],
 	"settings": {
