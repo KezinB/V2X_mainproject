@@ -22,6 +22,30 @@
 		{
 			"name": "TX_check_NRF",
 			"path": "main/TX_check_NRF"
+		},
+		{
+			"name": "ESP32 CAM webserver",
+			"path": "test_codes/ESP32 CAM webserver"
+		},
+		{
+			"name": "240212-195908-esp32cam",
+			"path": "../../../../PlatformIO/Projects/240212-195908-esp32cam"
+		},
+		{
+			"name": "4_HC-SR04_nano",
+			"path": "test_codes/4_HC-SR04_nano"
+		},
+		{
+			"name": "4_HC-SR04_I2C_slave_nano",
+			"path": "main/4_HC-SR04_I2C_slave_nano"
+		},
+		{
+			"name": "4_HC-SR04_I2C_master_ESP32",
+			"path": "main/4_HC-SR04_I2C_master_ESP32"
+		},
+		{
+			"name": "Bluetooth_app",
+			"path": "test_codes/Bluetooth_app"
 		}
 	],
 	"settings": {

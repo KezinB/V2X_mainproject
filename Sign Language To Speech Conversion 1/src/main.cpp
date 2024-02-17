@@ -1,7 +1,9 @@
-
+#include <Arduino.h>
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h" 
+
 DFRobotDFPlayerMini myDFPlayer;
+
 void printDetail(uint8_t type, int value);
 unsigned int f;
 SoftwareSerial mySoftwareSerial(9,10);
@@ -50,7 +52,7 @@ void loop()
   else                            
   {
     if (f > 100)
-
+      ;
   }
   delay(50);
 }

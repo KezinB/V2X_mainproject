@@ -2,8 +2,8 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-  const uint64_t pipeOut = 000322;         // NOTE: The same as in the receiver 000322 | Alıcı kodundaki adres ile aynı olmalı
-  RF24 radio(4, 5);                       // select CE,CSN pin | CE ve CSN pinlerin seçimi
+  const uint64_t pipeOut = 000322;         // NOTE: The same as in the receiver 000322 
+  RF24 radio(4, 5);                       // select CE,CSN pin |
 
   struct Signal {
   byte throttle;
@@ -25,9 +25,9 @@
   radio.openWritingPipe(pipeOut);
   radio.setChannel(100);
   radio.setAutoAck(false);
-  radio.setDataRate(RF24_250KBPS);    // The lowest data rate value for more stable communication  | Daha kararlı iletişim için en düşük veri hızı.
-  radio.setPALevel(RF24_PA_MAX);      // Output power is set for maximum |  Çıkış gücü maksimum için ayarlanıyor.
-  radio.stopListening();              // Start the radio comunication for Transmitter | Verici için sinyal iletişimini başlatır.
+  radio.setDataRate(RF24_250KBPS);   
+  radio.setPALevel(RF24_PA_MAX);      
+  radio.stopListening();              
   Serial.begin(115200);
  
 }
@@ -40,7 +40,7 @@
   data.pitch = 127;
   data.roll = 127;
   data.yaw = 127;
-  data.aux1 = 2;                       // Signal lost position | Sinyal kesildiğindeki pozisyon
+  data.aux1 = 2;                       
   data.aux2 = 3;
   data.aux3 = 4;
   data.aux4 = 5;
@@ -63,7 +63,5 @@ for(int i=0; i<10; i++) {
     radio.write(&data, sizeof(Signal));
     delay(500);
   }
-
   //delay(2000);
-  
 }
