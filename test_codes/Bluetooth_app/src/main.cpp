@@ -48,14 +48,14 @@ void loop() {
     }
     else if (incoming == 130)
     {
-      left();
-      delay(500);
+      right();
+      delay(250);
       stop();
     }
     else if (incoming == 131)
     {
-      right();
-      delay(500);
+      left();
+      delay(250);
       stop();
     }
     else{

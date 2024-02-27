@@ -46,6 +46,10 @@
 		{
 			"name": "Bluetooth_app",
 			"path": "test_codes/Bluetooth_app"
+		},
+		{
+			"name": "GPS_ESP32",
+			"path": "test_codes/GPS_ESP32"
 		}
 	],
 	"settings": {
