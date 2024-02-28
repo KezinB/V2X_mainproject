@@ -1,11 +1,3 @@
-/*
- * This ESP32 code is created by esp32io.com
- *
- * This ESP32 code is released in the public domain
- *
- * For more detail (instruction and wiring diagram), visit https://esp32io.com/tutorials/esp32-gps
- */
-
 #include <TinyGPS++.h>
 
 #define GPS_BAUDRATE 9600  // The default baudrate of NEO-6M is 9600

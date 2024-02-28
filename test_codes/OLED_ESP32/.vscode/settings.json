@@ -1,0 +1,31 @@
+{
+    "cSpell.words": [
+        "Adafruit",
+        "DELTAY",
+        "NUMFLAKES",
+        "OLED",
+        "PROGMEM",
+        "startscrolldiagleft",
+        "startscrolldiagright",
+        "startscrollleft",
+        "startscrollright",
+        "stopscroll",
+        "SWITCHCAPVCC",
+        "testanimate",
+        "testdrawbitmap",
+        "testdrawchar",
+        "testdrawcircle",
+        "testdrawline",
+        "testdrawrect",
+        "testdrawroundrect",
+        "testdrawstyles",
+        "testdrawtriangle",
+        "testfillcircle",
+        "testfillrect",
+        "testfillroundrect",
+        "testfilltriangle",
+        "testscrolltext",
+        "XPOS",
+        "YPOS"
+    ]
+}

@@ -50,6 +50,18 @@
 		{
 			"name": "GPS_ESP32",
 			"path": "test_codes/GPS_ESP32"
+		},
+		{
+			"name": "OLED_ESP32",
+			"path": "test_codes/OLED_ESP32"
+		},
+		{
+			"name": "OLED_ESP32_text",
+			"path": "test_codes/OLED_ESP32_text"
+		},
+		{
+			"name": "OLED_ESP32_img",
+			"path": "test_codes/OLED_ESP32_img"
 		}
 	],
 	"settings": {
