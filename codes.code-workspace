@@ -62,12 +62,77 @@
 		{
 			"name": "OLED_ESP32_img",
 			"path": "test_codes/OLED_ESP32_img"
+		},
+		{
+			"name": "ADXL345_OLED_ESP32",
+			"path": "test_codes/ADXL345_OLED_ESP32"
+		},
+		{
+			"name": "ADXL345_GPS_OLED_ESP32",
+			"path": "test_codes/ADXL345_GPS_OLED_ESP32"
+		},
+		{
+			"name": "HC-SR04_ESP32",
+			"path": "test_codes/HC-SR04_ESP32"
+		},
+		{
+			"name": "HC-SR04_OLED_ESP32",
+			"path": "test_codes/HC-SR04_OLED_ESP32"
+		},
+		{
+			"name": "20X4_LCD_ESP32",
+			"path": "test_codes/20X4_LCD_ESP32"
+		},
+		{
+			"name": "I2C_check _ESP32",
+			"path": "test_codes/I2C_check _ESP32"
+		},
+		{
+			"name": "ACS712_ESP32_check",
+			"path": "test_codes/ACS712_ESP32_check"
+		},
+		{
+			"name": "3_phase_fault_ESP32",
+			"path": "test_codes/3_phase_fault_ESP32"
+		},
+		{
+			"name": "ACS712_Nano",
+			"path": "test_codes/ACS712_Nano"
+		},
+		{
+			"name": "3phase_fault_main",
+			"path": "../../../../COEDROLE/projects/3 phase fault detection/codes/3phase_fault_main"
+		},
+		{
+			"name": "blink_test",
+			"path": "blink_test"
+		},
+		{
+			"name": "3phase_blynk",
+			"path": "../../../../COEDROLE/projects/3 phase fault detection/3phase_blynk"
+		},
+		{
+			"name": "smart_trolly",
+			"path": "../../../../COEDROLE/projects/smart shopping cart/smart_trolly"
+		},
+		{
+			"name": "HC-SR04_nano_serial",
+			"path": "../../../../COEDROLE/projects/smart shopping cart/HC-SR04_nano_serial"
+		},
+		{
+			"name": "3_phase final test",
+			"path": "../../../../COEDROLE/projects/3 phase fault detection/3_phase final test"
 		}
 	],
 	"settings": {
 		"editor.formatOnPaste": true,
 		"editor.defaultFormatter": "xaver.clang-format",
 		"editor.formatOnSave": true,
-		"editor.formatOnType": true
+		"editor.formatOnType": true,
+		"files.associations": {
+			"*.py": "python",
+			"*.c": "c",
+			"iterator": "cpp"
+		}
 	}
 }

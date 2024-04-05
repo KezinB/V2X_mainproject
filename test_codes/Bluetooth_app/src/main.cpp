@@ -23,7 +23,7 @@ void stop();
 
 void setup() {
   Serial.begin(19200);
-  ESP_BT.begin("ESP32_Control");
+  ESP_BT.begin("Tessa");
   pinMode(5, OUTPUT);
   pinMode(18, OUTPUT);
   pinMode(19, OUTPUT);

@@ -1,109 +1,103 @@
-#include <NewPing.h>
-#include<Wire.h>
+#include <Arduino.h>
+#define trigPin1 2
+#define echoPin1 3
+#define trigPin2 5
+#define echoPin2 4
+#define trigPin3 7
+#define echoPin3 6
 
-#define slaveAddress 9
+#define motlft1 A0
+#define motlft2 A1
+#define motryt1 A2
+#define motryt2 A3
 
-#define TRIGGER_PIN_0  2
-#define ECHO_PIN_0     2
 
-// Sensor 1
-#define TRIGGER_PIN_1  3
-#define ECHO_PIN_1     3
+struct finddistance
+{
+  int dist1;
+  int dist2;
+  int dist3;
+};
 
-// Sensor 2
-#define TRIGGER_PIN_2  4
-#define ECHO_PIN_2     4
-
-// Sensor 3
-#define TRIGGER_PIN_3  5
-#define ECHO_PIN_3     5
-
-// Maximum Distance is 400 cm
-#define MAX_DISTANCE 400
-
-// Create objects for ultrasonic sensors
-NewPing sensor0(TRIGGER_PIN_0, ECHO_PIN_0, MAX_DISTANCE);
-NewPing sensor1(TRIGGER_PIN_1, ECHO_PIN_1, MAX_DISTANCE);
-NewPing sensor2(TRIGGER_PIN_2, ECHO_PIN_2, MAX_DISTANCE);
-NewPing sensor3(TRIGGER_PIN_3, ECHO_PIN_3, MAX_DISTANCE);
-
-// Variables to represent distances
-float distance0, distance1, distance2, distance3;
-
-void requestEvent(){
-  
-}
+int checkDist(int trigPin, int echoPin);
 
 void setup() {
-  Wire.begin(slaveAddress);
-  Wire.onRequest(requestEvent);
-  // Serial monitor for testing
-  Serial.begin(9600);
-   
+  Serial.begin(9600); 
+  pinMode(trigPin1, OUTPUT); 
+  pinMode(echoPin1, INPUT); 
+  pinMode(trigPin2, OUTPUT); 
+  pinMode(echoPin2, INPUT); 
+  pinMode(trigPin3, OUTPUT); 
+  pinMode(echoPin3, INPUT); 
+  pinMode(motlft1,OUTPUT);
+  pinMode(motlft2,OUTPUT);
+  pinMode(motryt1,OUTPUT);
+  pinMode(motryt2,OUTPUT);
+
+}
+void forward(){
+  digitalWrite(motlft1, HIGH);
+  digitalWrite(motlft2, LOW);
+  digitalWrite(motryt1, HIGH);
+  digitalWrite(motryt2, LOW);
+  Serial.println("moving forward");
+}
+void backward(){
+  digitalWrite(motlft1, LOW);
+  digitalWrite(motlft2, HIGH);
+  digitalWrite(motryt1, LOW);
+  digitalWrite(motryt2, HIGH);
+  Serial.println("moving backward");
+}
+void left(){
+  digitalWrite(motlft1, HIGH);
+  digitalWrite(motlft2, LOW);
+  digitalWrite(motryt1, LOW);
+  digitalWrite(motryt2, LOW);
+  Serial.println("moving left");
+}
+void right(){
+  digitalWrite(motlft1, LOW);
+  digitalWrite(motlft2, LOW);
+  digitalWrite(motryt1, HIGH);
+  digitalWrite(motryt2, LOW);
+  Serial.println("moving right");
 }
 
 void loop() {
-   
-  // Read sensors in CM 
-  // Sensor 0
-  distance0 = sensor0.ping_cm();
-  delay(20);
-  
-  // Sensor 1
-  distance1 = sensor1.ping_cm();
-  delay(20);
-  
-  // Sensor 2
-  distance2 = sensor2.ping_cm();
-  delay(20);
-  
-  // Sensor 3
-  distance3 = sensor3.ping_cm();
-  delay(20);
-  
-   
-  // Send results to Serial Monitor
-  // Sensor 0
-  Serial.print("Distance 0 = ");
-  if (distance0 >= 400 || distance0 <= 2) {
-    Serial.println("Out of range");
+  finddistance distance;
+  distance.dist1 = checkDist(trigPin1, echoPin1);
+  distance.dist2 = checkDist(trigPin2, echoPin2);
+  distance.dist3 = checkDist(trigPin3, echoPin3);
+  // Serial.print("Distance1: "); 
+  // Serial.print(distance.dist1);
+  // Serial.println(" cm");
+  // Serial.print("Distance2: "); 
+  // Serial.print(distance.dist2);
+  // Serial.println(" cm");
+  // Serial.print("Distance3: "); 
+  // Serial.print(distance.dist3);
+  // Serial.println(" cm");
+  if(distance.dist1 < 20){
+    backward();
   }
-  else {
-    Serial.print(distance0);
-    Serial.println(" cm");
-    delay(50);
+  else{
+    forward();
   }
-  // Sensor 1
-  Serial.print("Distance 1 = ");
-  if (distance1 >= 400 || distance1 <= 2) {
-    Serial.println("Out of range");
-  }
-  else {
-    Serial.print(distance1);
-    Serial.println(" cm");
-    delay(50);
-  }
-  // Sensor 2
-  Serial.print("Distance 2 = ");
-  if (distance2 >= 400 || distance2 <= 2) {
-    Serial.println("Out of range");
-  }
-  else {
-    Serial.print(distance2);
-    Serial.println(" cm");
-    delay(50);
-  }
-  // Sensor 3
-  Serial.print("Distance 3 = ");
-  if (distance3 >= 400 || distance3 <= 2) {
-    Serial.println("Out of range");
-  }
-  else {
-    Serial.print(distance3);
-    Serial.println(" cm");
-    delay(50);
-  }
-  
-  
-  //delay(250);
+  delay(100);
 }
+
+int checkDist(int trigPin,int echoPin)
+{
+  long duration, distance; 
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2); 
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW); 
+  
+  duration = pulseIn(echoPin, HIGH);       
+  distance = (duration * 0.0343) / 2;
+  return distance;
+}
+  
