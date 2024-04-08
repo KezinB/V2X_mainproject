@@ -13,7 +13,7 @@ void requestEvent();
 // Sensor 0
 #define TRIGGER_PIN_0  2
 #define ECHO_PIN_0     2
-
+  
 // Sensor 1
 #define TRIGGER_PIN_1  3
 #define ECHO_PIN_1     3

@@ -122,6 +122,9 @@
 		{
 			"name": "3_phase final test",
 			"path": "../../../../COEDROLE/projects/3 phase fault detection/3_phase final test"
+		},
+		{
+			"path": "../../../../COEDROLE/projects/smart shopping cart/RFID test"
 		}
 	],
 	"settings": {
