@@ -1,34 +1,78 @@
 #include <Arduino.h>
-const int triggerPin = 2;  // GPIO pin connected to the trigger pin of HC-SR04
-const int echoPin = 4;     // GPIO pin connected to the echo pin of HC-SR04
+#define  triggerPin1  26  
+#define  echoPin1 25
+#define  triggerPin2  33  
+#define  echoPin2 35
+#define  triggerPin3  32  
+#define  echoPin3 34
+
+int frontDist, leftDist, rightDist;
+int checkDist1(int trigPin,int echoPin);
+int checkDist2(int trigPin,int echoPin);
+int checkDist3(int trigPin,int echoPin);
 
 void setup() {
   Serial.begin(115200);
-  pinMode(triggerPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  for (int pin = 0; pin < 40; pin++) {
+    digitalWrite(pin, LOW);
+  }
+  pinMode(triggerPin1, OUTPUT);
+  pinMode(echoPin1, INPUT);
+  pinMode(triggerPin2, OUTPUT);
+  pinMode(echoPin2, INPUT);
+  pinMode(triggerPin3, OUTPUT);
+  pinMode(echoPin3, INPUT);
 }
 
 void loop() {
-  long duration;
-  int distance;
+  frontDist = checkDist1(triggerPin1, echoPin1);
+  rightDist = checkDist2(triggerPin2, echoPin2);
+  leftDist = checkDist3(triggerPin3, echoPin3);
+  Serial.println("Front distance : ");
+  Serial.println(frontDist);
+  Serial.println("Left distance : ");
+  Serial.println(leftDist);
+  Serial.println("Right distance : ");
+  Serial.println(rightDist);
+  delay(500);
+}
 
-  // Send a 10us pulse to trigger the HC-SR04
-  digitalWrite(triggerPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(triggerPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(triggerPin, LOW);
-
-  // Measure the duration of the pulse on the echo pin
-  duration = pulseIn(echoPin, HIGH);
-
-  // Calculate distance in centimeters
-  distance = duration * 0.034 / 2;
-
-  // Print the distance to the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm");
-
-  delay(250);  // Adjust the delay as needed
+int checkDist1(int trigPin,int echoPin)
+{
+  long duration, distance; 
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2); 
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW); 
+  
+  duration = pulseIn(echoPin, HIGH);       
+  distance = (duration * 0.0343) / 2;
+  return distance;
+}
+int checkDist2(int trigPin,int echoPin)
+{
+  long duration, distance; 
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2); 
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW); 
+  
+  duration = pulseIn(echoPin, HIGH);       
+  distance = (duration * 0.0343) / 2;
+  return distance;
+}
+int checkDist3(int trigPin,int echoPin)
+{
+  long duration, distance; 
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2); 
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW); 
+  
+  duration = pulseIn(echoPin, HIGH);       
+  distance = (duration * 0.0343) / 2;
+  return distance;
 }

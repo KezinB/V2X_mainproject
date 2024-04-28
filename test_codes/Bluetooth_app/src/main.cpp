@@ -1,10 +1,10 @@
 #include <Arduino.h>
 #include "BluetoothSerial.h" 
 
-#define Mot11 5
-#define Mot12 18
-#define Mot21 19
-#define Mot22 21
+#define Mot11 13
+#define Mot12 12
+#define Mot21 14
+#define Mot22 27
 // init Class:
 BluetoothSerial ESP_BT; 
 
@@ -22,16 +22,16 @@ void right();
 void stop();
 
 void setup() {
-  Serial.begin(19200);
-  ESP_BT.begin("Tessa");
-  pinMode(5, OUTPUT);
-  pinMode(18, OUTPUT);
-  pinMode(19, OUTPUT);
-  pinMode(21, OUTPUT);
+  Serial.begin(115200);
+  ESP_BT.begin(" Tezza ");
+  pinMode(Mot11, OUTPUT);
+  pinMode(Mot12, OUTPUT);
+  pinMode(Mot21, OUTPUT);
+  pinMode(Mot22, OUTPUT);
 }
 
 void loop() {
- 
+incoming = 0;
   // -------------------- Receive Bluetooth signal ----------------------
   if (ESP_BT.available()) 
   {
@@ -59,6 +59,7 @@ void loop() {
       stop();
     }
     else{
+      incoming = 0;
       stop();
     }
     
@@ -89,37 +90,42 @@ void reset_rx_BT() {                    // function to erase all bytes (set to -
 }
 
 
-void backward(){
-  digitalWrite(Mot11, HIGH);
-  digitalWrite(Mot12, LOW);
-  digitalWrite(Mot21, HIGH);
-  digitalWrite(Mot22, LOW);
-  incoming = 0;
-}
-void forward(){
+void forward() {
   digitalWrite(Mot11, LOW);
   digitalWrite(Mot12, HIGH);
   digitalWrite(Mot21, LOW);
   digitalWrite(Mot22, HIGH);
-  incoming = 0;
+  Serial.println("forward");
 }
-void left(){
+
+void backward() {
+  digitalWrite(Mot11, HIGH);
+  digitalWrite(Mot12, LOW);
+  digitalWrite(Mot21, HIGH);
+  digitalWrite(Mot22, LOW);
+  Serial.println("backward");
+}
+
+void left() {
   digitalWrite(Mot11, HIGH);
   digitalWrite(Mot12, LOW);
   digitalWrite(Mot21, LOW);
   digitalWrite(Mot22, HIGH);
-  incoming = 0;
+  Serial.println("moving left");
 }
-void right(){
+
+void right() {
   digitalWrite(Mot11, LOW);
   digitalWrite(Mot12, HIGH);
   digitalWrite(Mot21, HIGH);
   digitalWrite(Mot22, LOW);
-  incoming = 0;
+  Serial.println("moving right");
 }
-void stop(){
+
+void stop() {
   digitalWrite(Mot11, LOW);
   digitalWrite(Mot12, LOW);
   digitalWrite(Mot21, LOW);
   digitalWrite(Mot22, LOW);
+  Serial.println("stop");
 }

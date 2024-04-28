@@ -125,6 +125,37 @@
 		},
 		{
 			"path": "../../../../COEDROLE/projects/smart shopping cart/RFID test"
+		},
+		{
+			"name": "Bluetooth_app_FreeRTOS",
+			"path": "test_codes/Bluetooth_app_FreeRTOS"
+		},
+		{
+			"name": "test_uno",
+			"path": "test_uno"
+		},
+		{
+			"name": "LED Blink",
+			"path": "test_codes/LED Blink"
+		},
+		{
+			"name": "NRF24L01 ESP32",
+			"path": "test_codes/NRF24L01 ESP32"
+		},
+		{
+			"name": "Smart switch board",
+			"path": "../../../../COEDROLE/projects/smart switch/Smart switch board"
+		},
+		{
+			"name": "servo test",
+			"path": "test_codes/servo test"
+		},
+		{
+			"name": "smart switch nano",
+			"path": "../../../../COEDROLE/projects/smart switch/smart switch nano"
+		},
+		{
+			"path": "main/V2X_US_BT"
 		}
 	],
 	"settings": {
